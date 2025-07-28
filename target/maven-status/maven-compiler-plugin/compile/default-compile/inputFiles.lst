@@ -1,0 +1,13 @@
+C:\Users\henry\OneDrive\Desktop\SpringBoot Projects\planup\src\main\java\com\group\planup\config\JwtFilter.java
+C:\Users\henry\OneDrive\Desktop\SpringBoot Projects\planup\src\main\java\com\group\planup\config\SecurityConfig.java
+C:\Users\henry\OneDrive\Desktop\SpringBoot Projects\planup\src\main\java\com\group\planup\config\UserAlreadyExistsException.java
+C:\Users\henry\OneDrive\Desktop\SpringBoot Projects\planup\src\main\java\com\group\planup\Controllers\UserController.java
+C:\Users\henry\OneDrive\Desktop\SpringBoot Projects\planup\src\main\java\com\group\planup\dto\UserProfile.java
+C:\Users\henry\OneDrive\Desktop\SpringBoot Projects\planup\src\main\java\com\group\planup\Models\Role.java
+C:\Users\henry\OneDrive\Desktop\SpringBoot Projects\planup\src\main\java\com\group\planup\Models\UserPrincipal.java
+C:\Users\henry\OneDrive\Desktop\SpringBoot Projects\planup\src\main\java\com\group\planup\Models\Users.java
+C:\Users\henry\OneDrive\Desktop\SpringBoot Projects\planup\src\main\java\com\group\planup\PlanupApplication.java
+C:\Users\henry\OneDrive\Desktop\SpringBoot Projects\planup\src\main\java\com\group\planup\Repository\UserRepo.java
+C:\Users\henry\OneDrive\Desktop\SpringBoot Projects\planup\src\main\java\com\group\planup\Services\JWTService.java
+C:\Users\henry\OneDrive\Desktop\SpringBoot Projects\planup\src\main\java\com\group\planup\Services\MyUserDetailsService.java
+C:\Users\henry\OneDrive\Desktop\SpringBoot Projects\planup\src\main\java\com\group\planup\Services\UserService.java
