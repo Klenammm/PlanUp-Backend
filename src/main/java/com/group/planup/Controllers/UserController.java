@@ -6,6 +6,7 @@ import com.group.planup.dto.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
@@ -56,8 +57,8 @@ public class UserController {
     }
 
     @GetMapping("api/me")
-    public ResponseEntity<Users> getCurrentUser(@AuthenticationPrincipal Users user) {
-        String username = user.getUsername();
+    public ResponseEntity<Users> getCurrentUser(@AuthenticationPrincipal UserDetails userDetails) {
+        String username = userDetails.getUsername();
         Users users = userRepo.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
         return ResponseEntity.ok(users);
