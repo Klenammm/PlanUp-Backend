@@ -4,6 +4,7 @@ import com.group.planup.Repository.UserRepo;
 import com.group.planup.Services.UserService;
 import com.group.planup.dto.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -56,12 +57,21 @@ public class UserController {
         return ResponseEntity.ok("Profile updated");
     }
 
-    @GetMapping("api/me")
-    public ResponseEntity<Users> getCurrentUser(@AuthenticationPrincipal UserDetails userDetails) {
+    @GetMapping("/api/users/me")
+    public ResponseEntity<?> getCurrentUser(@AuthenticationPrincipal UserDetails userDetails) {
+        if (userDetails == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User not authenticated");
+        }
+
         String username = userDetails.getUsername();
-        Users users = userRepo.findByUsername(username)
+        Users user = userRepo.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
-        return ResponseEntity.ok(users);
+
+        // Optionally hide the password before returning
+        user.setPassword(null);
+
+        return ResponseEntity.ok(user);
     }
+
 
 }
