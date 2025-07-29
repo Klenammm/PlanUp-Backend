@@ -5,6 +5,8 @@ import com.group.planup.Services.UserService;
 import com.group.planup.dto.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -51,6 +53,14 @@ public class UserController {
         user.setAvatar(profile.getAvatar());
         userRepo.save(user);
         return ResponseEntity.ok("Profile updated");
+    }
+
+    @GetMapping("api/me")
+    public ResponseEntity<Users> getCurrentUser(@AuthenticationPrincipal Users user) {
+        String username = user.getUsername();
+        Users users = userRepo.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User Not Found"));
+        return ResponseEntity.ok(users);
     }
 
 }
